@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="team-design">
+		<header>
+			<h2>Lets make the team easily</h2>
+		</header>
+		<ul class="teamul">
+			<li *ngFor = "let member of memberList">{{member}}</li>
+		</ul>
+		<div class="add-team-member">
+			<input #member type="text" name="teamNames" placeholder = "Name" (input) = "Memberinput(member.value)" [value] = "addMember">
+			<button (click) = "Addmember()">Add</button>
+		</div>
+		<div class="add-teams">
+			<input #teamnumber type="number" name="" placeholder = "# of teams" (input) = "teamInput(teamnumber.value)" [value] = "teamsNumber">
+			<button (click) = "teamGenerate()">Generate</button>
+		</div>
+		<div class="errormsg">
+			<p>{{errorMsg}}</p>
+		</div>
+	</div>
+	<div *ngIf = "teams.length" class="teams">
+		<div *ngFor = "let members of teams let i = index">
+			<h3>Team {{i + 1}}</h3>
+			<ul class="teamslist">
+				<li *ngFor = "let memberList of members">{{memberList}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
